@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body {
+            background: url(images/blackgray.jpg) no-repeat center fixed;
+        }
+        h1 {
+            font-size: 60px;
+            text-align: center;
+            color: white;
+            max-width: 750px;
+            margin: 0 auto ;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 40px;
+            text-align: center;
+        }
+        .foodItemTotal{
+            font-size: 30px;
+            text-align: center;
+        }
+        .cusName {
+            font-size: 20px;
+            margin: 10px;
+        }
+        .date {
+            font-size: 15px;
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            font-size: 30px;
+            color: white;
+            background-color: darkslategray;
+            border: none;
+            border-radius: .2em;
+            font-weight: bold;
+            padding: 10px;
+        }
+        button:hover {
+            background-color: rgb(36, 47, 47);
+        }
+
+        .cart-row {
+            width: 450px;
+            margin: 0 auto;
+            border: 3px solid darkslategray;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-areas: 
+            'receipt price quantity'
+            'receipt price quantity';
+            margin: 0 auto
+        }
+
+        .quantity {
+            grid-area: quantity;
+            max-width: 5px;
+            font-size: 30px;
+            margin-right: 40px;
+        }
+
+        .items {
+            grid-area: receipt;
+            max-width: 210px;
+            font-size: 30px;
+            margin-left: 20px;
+
+        }
+        
+        .price {
+            grid-area: price;
+            max-width: 15px;
+            margin-right: 80px;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Ordered Successfully</h1>
+    <h1>Thank You for Ordering at Quoseighnaugh de Antonio</h1><br>
+    <div class="cart-row">
+        <h2>Official Receipt</h2>
+        <div class="date" id="receiptDate"></div><hr>
+        <div class="cusName" id="customerName"></div><hr>
+        <div class="grid">
+        <div class="quantity" id="quan"></div>
+        <div class="items" id="receipt"></div>
+        <div class="price" id="price"></div>
+        </div>
+        <div class="foodItemTotal" id="totalP"></div>
+    </div><br><br>
+    <h1>Want to order again? Click the button bellow</h1>
+    <button onclick="orderAgain()">Order Again</button><br><br>
+
+    <script>
+        const items = localStorage.getItem('items');
+        const total = localStorage.getItem('total');
+        const paymentValue = localStorage.getItem('paymentValue');
+        const cusName = localStorage.getItem('cusName');
+        const loc = localStorage.getItem('loc');
+        const email = localStorage.getItem('email');
+        const num = localStorage.getItem('num');
+        const arry = JSON.parse(localStorage.getItem('arry'));
+        const foodTitleArry = JSON.parse(localStorage.getItem('foodTitleArry'));
+        const foodPriceArry = JSON.parse(localStorage.getItem('foodPriceArry'));
+        const date = new Date();
+
+        quans = arry.join(' x');
+        fTitle = foodTitleArry.join(' ');
+        fPrice = foodPriceArry.join(' ');
+        // totalItem = items.replace(/REMOVE/g, '');
+        totalPrice = parseFloat(total.replace('Total ₱', '')); 
+        grandTotal = (totalPrice-169);
+
+        document.getElementById('receiptDate').innerHTML = date;
+        document.getElementById('customerName').innerHTML = 'Name: '+cusName+"<br> Location: "+loc+"<br> Email: "+email+"<br> Mobile Number: "+num;
+        document.getElementById('quan').innerHTML = 'x'+quans;
+        document.getElementById('receipt').innerHTML = fTitle;
+        document.getElementById('price').innerHTML = fPrice;
+        document.getElementById('totalP').innerHTML = '<hr> Sub'+total+'<br> NewYear Sale -₱169 <hr> Grand Total ₱'+grandTotal+'<br>Received ₱'+paymentValue+'<hr> Change ₱'+(paymentValue-grandTotal);
+
+        function orderAgain() {
+            window.location.href="index.html";
+        }
+    </script>
+</body>
+</html> 

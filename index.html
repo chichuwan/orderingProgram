@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" async></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        Quoseighnaugh de Antonio 
+    </header>   
+    <section class="container content-section">
+        <h2 class="section-header">Rice Meals</h2>
+        <div class="food-items">
+            <div class="food-item">
+                <span class="food-item-title">Sisig de Antonio</span>
+                <img src="images/sisig.jpg" width="300px" class="food-item-image">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱899</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Mr. Crabster</span>
+                <img src="images/crab.jpg" width="300px" class="food-item-image">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱999</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Wagyu Steak</span>
+                <img src="images/steak1.jpg" width="300px" class="food-item-image">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱1299</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Dragon Wings</span>
+                <img src="images/wings.jpg" width="300px" class="food-item-image">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱1599</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Tinolang Shark</span>
+                <img src="images/tinola.jpg" width="300px" class="food-item-image">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱2199</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    <section class="container content-section">
+        <h2 class="section-header">Drinks</h2>
+        <div class="food-items">
+            <div class="food-item">
+                <span class="food-item-title">Green Ocean</span>
+                <img class="food-item-image" src="images/greenocean.jpg">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱299</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Very Berries</span>
+                <img class="food-item-image" src="images/berries.jpg">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱299</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Minty Melon</span>
+                <img class="food-item-image" src="images/melon.jpeg">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱310</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Yellow Bird</span>
+                <img class="food-item-image" src="images/yellowbird.jpg">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱399</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+            <div class="food-item">
+                <span class="food-item-title">Dragons Blood</span>
+                <img class="food-item-image" src="images/dragon.jpg">
+                <div class="food-item-details">
+                    <span class="food-item-price">₱499</span>
+                    <button class="btn btn-primary food-item-button" type="button">Order</button>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    <section class="container content-section"> 
+        <h2 class="section-header">Order List</h2>        
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        
+        <div class="cart-items"></div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">₱0</span>
+        </div>
+        <h2 class="section-header">Please Input Payment Here To Proceed Order</h2>
+        <input class="customerNameInp" placeholder="₱" type="number" id="payment">
+        <button class="btn btn-primary btn-pay" onclick="toPay(payment.value)">Place Order</button>
+    </section>
+    <br><br>
+</body>
+</html>

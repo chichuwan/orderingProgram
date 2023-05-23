@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="order.js" async></script>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: url(images/blackgray.jpg)no-repeat center fixed;
+        }
+        h1 {
+            font-size: 80px;
+            text-align: center;
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            color: darkslategray;
+            font-size: 50px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            font-size: 35px;
+            color: white;
+            background-color: darkslategray;
+            border: none;
+            border-radius: .2em;
+            font-weight: bold;
+            padding: 10px;
+        }
+        button:hover {
+            background-color: rgb(36, 47, 47);
+        }
+        .label {
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+        }
+        .customerNameInp {
+            max-width: 1190px;
+            height: 44px;
+            margin: 0 auto;
+            display: block;
+            background-color: white;
+            border-radius: .5rem;
+            padding: 0 1rem;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+        }
+        .customerNameInp:hover {
+            border-top-width: 0.2em;
+            background-color: #f1e8e8;
+        }
+        .customerNameInp:focus {
+            border-top-width: 0.2em;
+            background-color: #f1e8e8;
+        }
+        .container {
+            max-width: 400px;
+            max-height: 600px;
+            border: 3px solid white;
+            border-radius: 12px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.722);
+            padding: 20px;
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Please fill this form to proceed order</h1>
+    <div class="container">
+        <div class="input-group">
+            <label class="label">Name</label>
+            <input id="cusName" class="customerNameInp" type="text">
+        </div><br>
+        <div class="input-group">
+            <label class="label">Location</label>
+            <input id="loc" class="customerNameInp" type="text">
+        </div><br>
+        <div class="input-group">
+            <label class="label">Email</label>
+            <input id="email" class="customerNameInp" type="email">
+        </div><br>
+        <div class="input-group">
+            <label class="label">Mobible Number</label>
+            <input id="num" class="customerNameInp" type="number">
+        </div>
+    </div><br><br>
+    <button onclick="proceedOrder(cusName.value,loc.value,email.value,num.value)">Proceed</button>
+    <br><br>
+    <button onclick="cancelOrder()">Cancel Order</button>
+    <h1 id="outp"></h1>
+    
+    <script>
+        function proceedOrder(cusName, loc, email, num) {
+            localStorage.setItem('cusName',cusName);
+            localStorage.setItem('loc',loc);
+            localStorage.setItem('email',email);
+            localStorage.setItem('num',num);
+
+            if(cusName, loc, email, num  == '') {
+                alert('Please fill the form completely')
+            }
+            else {
+            window.location.href="done.html";
+            }
+        }
+        function cancelOrder() {
+            window.location.href="order2.html"
+        }
+        
+
+    </script>
+</body>
+</html> 
